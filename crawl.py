@@ -86,7 +86,7 @@ def fetch(i):
     f.write('INSERT IGNORE INTO movie VALUES ')
     for idx, r in enumerate(rs):
         if idx: f.write(',\n')
-        f.write("(%d,%s,%s,'%s')" % (i, r[0], r[1], r[2].replace("'", "''").replace("\\", "\\\\")))
+        f.write("%s, '%s'" % (r[1], r[2].replace("'", "''").replace("\\", "\\\\")))
     f.write(';\n')
     f.close()
     time.sleep(1)
