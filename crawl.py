@@ -83,7 +83,6 @@ def fetch(i):
     rs = getComments(i)
     if not len(rs): return
     f = open(outname, 'w', encoding='utf-8')
-    f.write('INSERT IGNORE INTO movie VALUES ')
     for idx, r in enumerate(rs):
         if idx: f.write(',\n')
         f.write("%s, '%s'" % (r[1], r[2].replace("'", "''").replace("\\", "\\\\")))
